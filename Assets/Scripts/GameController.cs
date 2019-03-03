@@ -16,7 +16,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.D))
+#elif UNITY_IPHONE || UNITY_ANDROID
         if (Input.acceleration.x > 0.10f)
+#endif
         {
             if (angleX > -10f)
             {
@@ -24,7 +28,11 @@ public class GameController : MonoBehaviour
                 angleX += -1;
             }
         }
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.A))
+#elif UNITY_IPHONE || UNITY_ANDROID
         else if (Input.acceleration.x < -0.10f)
+#endif
         {
             if (angleX < 10f)
             {
@@ -32,7 +40,11 @@ public class GameController : MonoBehaviour
                 angleX += 1;
             }
         }
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.W))
+#elif UNITY_IPHONE || UNITY_ANDROID
         if (Input.acceleration.y > 0.10f)
+#endif
         {
             if (angleY < 10f)
             {
@@ -40,7 +52,11 @@ public class GameController : MonoBehaviour
                 angleY += 1;
             }
         }
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.S))
+#elif UNITY_IPHONE || UNITY_ANDROID
         else if (Input.acceleration.y < -0.10f)
+#endif
         {
             if (angleY > -10f)
             {
